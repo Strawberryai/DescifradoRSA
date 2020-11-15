@@ -1,0 +1,23 @@
+{
+  "name": "cifrado_rsa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliOlixx/cifrado_RSA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AliOlixx/cifrado_RSA/issues"
+  },
+  "homepage": "https://github.com/AliOlixx/cifrado_RSA#readme",
+  "dependencies": {
+    "ascii-art": "^2.5.0",
+    "big.js": "^6.0.2"
+  }
+}
