@@ -45,22 +45,19 @@ function descifrar_caracter(d, module, encripted) {
     //de un número muy grande
 
     let decripted = exponenciacion_modular(encripted, d,module);
-
     return decripted;
 }
 
 function exponenciacion_modular(base, exp, m){
-    // c congruente con b^e (mod m)
-    // Algoritmo de exponenciacion modular
+    let c = 1;
+    let e = 1;
+    let result;
 
-    let result = 1;
-
-    while (exp > 0) {
-        if (es_impar(exp)) result = (result * base) % m;
-        exp >>= 1;
-        base = (base * base) % m;
+    while (e <= exp) {
+        result = (base * c) % m;
+        c = result;
+        e++;
     }
-
     return result;
 }
 
@@ -86,7 +83,8 @@ function descifrar_RSA (e, p, q, message){
 function descifrar_Cesar(message){
     //D_n(x) = x - n \mod {26}.
     //probamos con todos los posibles desplazamientos
-    let str, strResult;
+    let str, strAcum, strResult;
+    strAcum = "";
     for(let n = 0; n < 26; n++){
         str = "";
         for(let i = 0; i < message.length; i++){
@@ -98,12 +96,14 @@ function descifrar_Cesar(message){
             }
         }
         if(n == 4) strResult = str;
-        console.log(str);
+        strAcum += str +" ";
+        //console.log(str);
     }
+    console.log(strAcum);
     console.log("\x1b[47m\x1b[30m%s\x1b[0m" ,"--- " + strResult + " ---");
 }
 
-console.log("Descifrar mensage:");
+console.log("Descifrar mensaje:");
 let abcdario = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let encripted_message = "362 420  299 362 420 181 446 08 147 08"
 descifrar_RSA(41, 17, 31, encripted_message);
