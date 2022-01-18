@@ -1,5 +1,3 @@
-require('./animation');
-
 function string_to_array(str){
     return str.split(" ");
 }
